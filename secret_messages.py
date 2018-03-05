@@ -8,12 +8,11 @@ def introduction():
 	print("This is the Secret Messages project for the Treehouse Techdegree.")
 	print("")
 	print("""These are the current available ciphers:
--Alberti cipher
 -Atbash cipher
 -Caeser cipher #이미 있음
 -Polybius square cipher
 -Transposition cipher
--ADFGVX cipher
+-ADFGVX cipher # 거의완성
 -Keyword ciphers #완성함
 """)
 	#input("Which cipher would you like to use? ")

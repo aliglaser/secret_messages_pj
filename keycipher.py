@@ -3,8 +3,9 @@ from ciphers import Cipher
 class KeywordCipher(Cipher):
 	keywordList=[]
 	alphabet="abcdefghijklmnopqrstuvwxyz"
-	new_rule=[]
-	final = []
+	new_rule = []
+	encrypted = []
+	decrypted = []
 
 	def __init__(self, keyword=""):
 		for letter in keyword:
@@ -24,12 +25,17 @@ class KeywordCipher(Cipher):
 		for letter in text:
 			for oril, newl in zipped:
 				if letter == oril:
-					self.final.append(newl)
-		print("".join(self.final))	
+					self.encrypted.append(newl)
+		print("".join(self.encrypted))	
 	
 
-"""
+
 	def decrypt(self, text=""):
 		zipped = zip(self.alphabet, self.new_rule)
-		zipped = list(zipped)	
-"""					
+		zipped = list(zipped)
+		for letter in text:
+			for oril, newl in zipped:
+				if letter == newl:
+					self.decrypted.append(oril)
+		print("".join(self.decrypted))		
+					
