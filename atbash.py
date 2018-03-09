@@ -16,17 +16,21 @@ class AtbashCipher(Cipher):
 		output=[]
 		zipped = list(zip(self.alphabetlist, self.rvsdalphabetlist))
 		for letter in text:
+			if letter == " ":
+				output.append(" ")
 			for ori, rvsd in zipped:
 				if ori == letter:
 					output.append(rvsd)
-		print("".join(output))	
+		return("".join(output))	
 
 	
 	def decrypt(self, text=""):
 		output =[]
 		zipped = list(zip(self.alphabetlist, self.rvsdalphabetlist))
 		for letter in text:
+			if letter == " ":
+				output.append(" ")
 			for ori, rvsd in zipped:
 				if rvsd == letter:
 					output.append(ori)
-		print("".ajoin(output))					
+		return("".join(output))					

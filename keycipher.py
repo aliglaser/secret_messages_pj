@@ -7,8 +7,9 @@ class KeywordCipher(Cipher):
 	encrypted = []
 	decrypted = []
 
-	def __init__(self, keyword=""):
-		for letter in keyword:
+	def __init__(self, kwrd=""):
+		self.kwrd = kwrd
+		for letter in self.kwrd:
 			if letter not in self.keywordList:
 				self.keywordList.append(letter)
 
@@ -23,10 +24,12 @@ class KeywordCipher(Cipher):
 		zipped = zip(self.alphabet, self.new_rule)
 		zipped = list(zipped)
 		for letter in text:
+			if letter == " ":
+				self.encrypted.append(" ")
 			for oril, newl in zipped:
 				if letter == oril:
 					self.encrypted.append(newl)
-		print("".join(self.encrypted))	
+		return("".join(self.encrypted))	
 	
 
 
@@ -34,8 +37,10 @@ class KeywordCipher(Cipher):
 		zipped = zip(self.alphabet, self.new_rule)
 		zipped = list(zipped)
 		for letter in text:
+			if letter == " ":
+				self.decrypted.append(" ")
 			for oril, newl in zipped:
 				if letter == newl:
 					self.decrypted.append(oril)
-		print("".join(self.decrypted))		
+		return("".join(self.decrypted))		
 					

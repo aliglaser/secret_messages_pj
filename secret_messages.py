@@ -1,44 +1,72 @@
 import os
+from atbash import AtbashCipher
+from adfgvxcipher import ADFGVXCCipher
+from keycipher import KeywordCipher
+from caesar import Caesar
 
 
 
 
+
+
+
+
+#Show the users the cipher options
 def introduction():
 	os.system('cls' if os.name == 'nt' else 'clear')
 	print("This is the Secret Messages project for the Treehouse Techdegree.")
 	print("")
 	print("""These are the current available ciphers:
--Atbash cipher
--Caeser cipher #이미 있음
--Polybius square cipher
--Transposition cipher
--ADFGVX cipher # 거의완성
--Keyword ciphers #완성함
+
+1. Atbash
+2. Caesar
+3. ADFGVX
+4. Keyword
 """)
-	#input("Which cipher would you like to use? ")
+
+
+#list of the index number of the cipher list
+cipher_list = ['1', '2', '3', '4']
 
 
 
+#get an input and initiate cm(cipher method from Atbash, Caesar, ADFGVX, Keyword)
+def initiating(methd):	
+	if methd == "1":
+		cm = AtbashCipher()
+	elif methd == "2":
+		cm = Caesar()	
+	elif methd == "3":
+		cm = ADFGVXCCipher()
+	elif methd == "4":
+		kwrd = input("Whats' your keyword? >")
+		cm = KeywordCipher(kwrd)
+	return cm
 
-def make_ciphr(keyword):
-	keywordList=[]
-	for letter in keyword:
-		if letter not in keywordList:
-			keywordList.append(letter)
-	alphabet="abcdefghijklmnopqrstuvwxyz"
-	print(len(alphabet))
-	rest_letters=(set(alphabet).difference(set(keywordList)))
-	lrest=list(rest_letters)
-	lrest.sort()
-	new_rule=[]
-	new_rule.extend(keywordList)
-	new_rule.extend(lrest)
-	print(len(new_rule))
-	print(new_rule)
-
-
-
+def cipher():
+	while True:
+		introduction()
+		cipher_method=input("Which cipher would you like to use? ")
+		if cipher_method in cipher_list:
+			text = input("That's an excellent cipher. What's the message? >")
+		else:
+			qs=input("It's not on the list. Do you want to choose again? (y/n)  >")
+			if qs.lower() == "n":
+				break	
+		choice = (input("Are we going to encrypt or decrypt? > ")).lower()
+		cm = initiating(cipher_method)
+		if choice == "encrypt":
+			result = cm.encrypt(text)
+		elif choice == "decrypt":
+			result = cm.decrypt(text)
+		print(result)
+		tryagain=input("Encrypt/decrypt something else? Y/n  >")
+		if qs.lower() == "n":
+			break		
+		
 
 if __name__ == "__main__":
-	introduction()
+	cipher()
+	
+
 
