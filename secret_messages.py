@@ -7,10 +7,6 @@ from caesar import Caesar
 
 
 
-
-
-
-
 #Show the users the cipher options
 def introduction():
 	os.system('cls' if os.name == 'nt' else 'clear')
@@ -43,6 +39,7 @@ def initiating(methd):
 		cm = KeywordCipher(kwrd)
 	return cm
 
+
 def cipher():
 	while True:
 		introduction()
@@ -52,17 +49,27 @@ def cipher():
 		else:
 			qs=input("It's not on the list. Do you want to choose again? (y/n)  >")
 			if qs.lower() == "n":
-				break	
+				break
+			else:
+				cipher()		
 		choice = (input("Are we going to encrypt or decrypt? > ")).lower()
 		cm = initiating(cipher_method)
-		if choice == "encrypt":
-			result = cm.encrypt(text)
-		elif choice == "decrypt":
-			result = cm.decrypt(text)
+		while True:
+			if choice.lower() == "encrypt":
+				result = cm.encrypt(text)
+				break
+			elif choice.lower() == "decrypt":
+				result = cm.decrypt(text)
+				break
+			else:
+				choice = input("You didnt' type it right. Choose between Encrypt/decrypt  >")	
 		print(result)
 		tryagain=input("Encrypt/decrypt something else? Y/n  >")
-		if qs.lower() == "n":
-			break		
+		if tryagain.lower() == "n":
+			break
+		else:
+			cipher()	
+			
 		
 
 if __name__ == "__main__":

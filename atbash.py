@@ -4,6 +4,7 @@ class AtbashCipher(Cipher):
 	alphabetlist = list("abcdefghijklmnopqrstuvwxyz")
 	rvsdalphabetlist = alphabetlist[::-1]
 
+
 	def __init__(self):
 		pass
 

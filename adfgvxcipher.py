@@ -28,7 +28,6 @@ class ADFGVXCCipher(Cipher):
 						index1=self.wordlist.index(row)
 						index2=row.index(item)
 						output.append(self.e_index[index1]+self.e_index[index2])
-						#print(row.index(item))
 		return("".join(output))
 	
 
@@ -37,8 +36,6 @@ class ADFGVXCCipher(Cipher):
 		index1 = 0
 		index2 = 0
 		textlist = [text[i:i+2] for i in range(0, len(text), 2)]
-		print(textlist)
-
 		for letters in textlist:
 			if letters=="  ":
 				output.append(" ")
