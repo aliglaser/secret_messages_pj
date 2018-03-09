@@ -9,6 +9,11 @@ from caesar import Caesar
 
 #Show the users the cipher options
 def introduction():
+	"""
+	Show the list of the cipher options
+	Choose the method with the number on left of the method name
+	If you choose the nonexistent number, you'll see errors
+	"""
 	os.system('cls' if os.name == 'nt' else 'clear')
 	print("This is the Secret Messages project for the Treehouse Techdegree.")
 	print("")
@@ -27,7 +32,11 @@ cipher_list = ['1', '2', '3', '4']
 
 
 #get an input and initiate cm(cipher method from Atbash, Caesar, ADFGVX, Keyword)
-def initiating(methd):	
+def initiating(methd):
+	"""
+	This method is to create the instance of the cipher you chose
+	"""
+
 	if methd == "1":
 		cm = AtbashCipher()
 	elif methd == "2":
@@ -41,6 +50,10 @@ def initiating(methd):
 
 
 def cipher():
+	"""
+	follow the instuction to encrypt/decrypt the message
+	"""
+
 	while True:
 		introduction()
 		cipher_method=input("Which cipher would you like to use? ")
@@ -66,9 +79,7 @@ def cipher():
 		print(result)
 		tryagain=input("Encrypt/decrypt something else? Y/n  >")
 		if tryagain.lower() == "n":
-			break
-		else:
-			cipher()	
+			break	
 			
 		
 

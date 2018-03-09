@@ -9,11 +9,10 @@ class AtbashCipher(Cipher):
 		pass
 
 
-	def printlist(self):
-		print(self.rvsdalphabetlist)
-
-
 	def encrypt(self, text=""):
+		"""
+		Method for encrypt the message with atbash Cipher
+		"""
 		output=[]
 		zipped = list(zip(self.alphabetlist, self.rvsdalphabetlist))
 		for letter in text:
@@ -26,6 +25,9 @@ class AtbashCipher(Cipher):
 
 	
 	def decrypt(self, text=""):
+		"""
+		Method for decrypt the message with atbash Cipher
+		"""
 		output =[]
 		zipped = list(zip(self.alphabetlist, self.rvsdalphabetlist))
 		for letter in text:

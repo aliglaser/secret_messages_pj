@@ -18,6 +18,10 @@ class ADFGVXCCipher(Cipher):
 
 
 	def encrypt(self, text):
+		"""
+		Method for encrypt the message with ADFGVX Cipher
+		"""
+
 		output=[]
 		for letter in text:
 			if letter==" ":
@@ -32,6 +36,9 @@ class ADFGVXCCipher(Cipher):
 	
 
 	def decrypt(self, text=""):
+		"""
+		Method for decrypt the message with ADFGVX Cipher
+		"""
 		output = []
 		index1 = 0
 		index2 = 0

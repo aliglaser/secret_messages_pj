@@ -21,6 +21,9 @@ class KeywordCipher(Cipher):
 
 
 	def encrypt(self, text=""):
+		"""
+		Method for encrypt the message with keyword cipher
+		"""
 		zipped = zip(self.alphabet, self.new_rule)
 		zipped = list(zipped)
 		for letter in text:
@@ -34,6 +37,9 @@ class KeywordCipher(Cipher):
 
 
 	def decrypt(self, text=""):
+		"""
+		Method for decrypt the message with keyword cipher
+		"""
 		zipped = zip(self.alphabet, self.new_rule)
 		zipped = list(zipped)
 		for letter in text:
