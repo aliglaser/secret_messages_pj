@@ -56,7 +56,7 @@ def cipher():
 
 	while True:
 		introduction()
-		cipher_method=input("Which cipher would you like to use? ")
+		cipher_method=input("Which cipher would you like to use? Choose the number")
 		if cipher_method in cipher_list:
 			text = input("That's an excellent cipher. What's the message? >")
 		else:
